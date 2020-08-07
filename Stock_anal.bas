@@ -1,4 +1,4 @@
-Attribute VB_Name = "Module1"
+Attribute VB_Name = "Stock_anal"
 Sub Stock_anal()
 
 'To make the tables I need the headers as an array, but making arrays manually
@@ -11,19 +11,20 @@ Dim Sheet_labels As String
 Titles1 = "Ticker-Yearly Change-Percent Change-Total Stock Volume"
 Titles2 = "Ticker-Value"
 Titles3 = "Greatest % Increase-Greatest % Decrease-Greeatest Total Volume"
-Sheet_labels = "2014-2015-2016"
+'Sheet_labels = "2014-2015-2016"
 
 Dim table_1_titles() As String
 Dim table_2_titles() As String
 Dim table_2_row_titles() As String
-Dim sheet_names() As String
+'Dim sheet_names() As String
 
 table_1_titles = Split(Titles1, "-")
 table_2_titles = Split(Titles2, "-")
 table_2_rows = Split(Titles3, "-")
-sheet_names = Split(Sheet_labels, "-")
+'sheet_names = Split(Sheet_labels, "-")
 
 Dim i As Long
+Dim j As Long
 Dim row_count As Long
 
 
@@ -56,10 +57,8 @@ For i = 0 To 2
 Cells((2 + i), 15) = table_2_rows(i)
 Next i
 
-
-'Well need to know how many rows there are. There might be an easier way to do this
-'but meh
-
+'Well need to know how many rows there are so we can use the number to iterate
+'loops the appropriate number of times
 
 row_count = 0
 
@@ -75,7 +74,6 @@ Dim current_symbol As String
 Dim first_price As Double
 Dim last_price As Double
 Dim counter As Long
-
 
 counter = 2
 Cells(counter, 12) = 0
@@ -99,9 +97,8 @@ Else
 Cells(counter, 11) = Cells(counter, 10) / first_price
 End If
 
-
 'This will reset the values of the variables before the end of IF; current_symbol and
-'first price will need to look one row ahead.  Last_price is set to 0 for error visiblity
+'first price will need to look one row ahead.  Last_price is set to 0 for error visiblity while debugging
 
 current_symbol = Cells(i + 1, 1)
 first_price = Cells(i + 1, 3)
@@ -110,7 +107,8 @@ counter = counter + 1
 End If
 Next i
 
-'This will populate the next table
+'This will populate the second table
+
 Dim gainest_ticker As String
 Dim gainest_value As Double
 Dim lossest_ticker As String
@@ -150,9 +148,6 @@ Cells(4, 16) = totalest_ticker
 Cells(4, 17) = totalest_value
 
 Next j
-
-
-
 
 End Sub
 
