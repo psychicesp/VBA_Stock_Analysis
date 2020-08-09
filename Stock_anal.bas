@@ -125,6 +125,7 @@ For EACH ws in Worksheets
             ws.Cells(i,10).Interior.ColorIndex = 3
         ElseIf ws.Cells(i,10) > 0 Then
             ws.Cells(i,10).Interior.ColorIndex = 4
+        End If
     Next i
 
     For i =2 to row_count
