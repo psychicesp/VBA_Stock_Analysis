@@ -1,5 +1,4 @@
 # VBA-challenge
-Second homework assignment
 
 The included Stock_anal in this folder will loop through the sheets of "Multiple_year_stock_data.xlsx"
 
