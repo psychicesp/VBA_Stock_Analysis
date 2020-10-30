@@ -10,7 +10,7 @@ Dim Titles3 As String
 
 Titles1 = "Ticker-Yearly Change-Percent Change-Total Stock Volume"
 Titles2 = "Ticker-Value"
-Titles3 = "Greatest % Increase-Greatest % Decrease-Greeatest Total Volume"
+Titles3 = "Greatest % Increase-Greatest % Decrease-Greatest Total Volume"
 
 Dim table_1_titles() As String
 Dim table_2_titles() As String
@@ -29,7 +29,7 @@ For EACH ws in Worksheets
 
     'The following function will construct the output tables.
 
-    'FIrst Table
+    'First Table
     For i = 0 To 3
         ws.Cells(1, (i + 9)) = table_1_titles(i)
     Next i
